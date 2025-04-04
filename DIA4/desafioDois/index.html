@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Josue Ocanha Costa">
+    <link rel="stylesheet" href="./style.css">
+    <title>Validação de CNH</title>
+</head>
+
+<body>
+    <div class="container">
+        
+        
+        <form action="" class="formulario">
+            <h1>Controle de Notas Estudantis</h1>
+            <i>A notas devem ter o valor de 0 a 100</i>
+
+            <div class="input-item">
+                <label for="inNome">Nome completo</label>
+                <input type="text" id="inNome" required autofocus>
+            </div>
+
+            <div class="input-item">
+                <label for="inN1">1° Bimestre</label>
+                <input type="number" min="0" max="100" step="0.01" required autofocus id="inN1">
+            </div>
+            <div class="input-item">
+                <label for="inN2">2° Bimestre</label>
+                <input type="number" min="0" max="100" step="0.01" required id="inN2">
+            </div>
+            <div class="input-item">
+                <label for="inN3">3° Bimestre</label>
+                <input type="number" min="0" max="100" step="0.01" required id="inN3">
+            </div>
+            <div class="input-item">
+                <label for="inN4">4° Bimestre</label>
+                <input type="number" min="0" max="100" step="0.01" required id="inN4">
+            </div>
+
+            <input type="submit" value="Verificar">
+        </form>
+
+        <div id="outResp">
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>
