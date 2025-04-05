@@ -1,6 +1,6 @@
 const resp = document.querySelector("#outResp")
 
-let tipo = ""
+let tipo = "Alimento"
 let produto = 19.99;
 let desconto = 0;
 let total = 0;
@@ -23,7 +23,6 @@ switch(tipo){
             total = produto - (produto * desconto);
             resp.innerText = `O valor do produto é ${produto.toFixed(2)} você ira pagar o valor integral ${total.toFixed(2)}`
             break
-
 }
 
 

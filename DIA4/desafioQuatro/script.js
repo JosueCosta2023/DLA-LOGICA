@@ -1,6 +1,5 @@
 const resp = document.querySelector("#outResp")
 
-
 let credito = 1600;
 let cadastroAtivo = true
 let situacao;
