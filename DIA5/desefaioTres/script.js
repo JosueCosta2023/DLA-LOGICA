@@ -1,12 +1,15 @@
-const capital = 1000;
-const taxa = 10 / 100;
-let montante;
+let valorInvestido = 1000;
+let taxaJuros = 0.05;
+let valorFinal = valorInvestido * 2;
 
-const periodo = 10;
 
-montante = capital * (1 + taxa) ** periodo
+let anosInvestimento = 0;
 
-let dif = montante - capital
 
-console.log(`Neste periodo de ${periodo} anos você obteve o lucro de ${dif.toFixed(2)}. Seu capital atual é de ${montante.toFixed(2)}.`)
+while(valorInvestido < valorFinal){
+    valorInvestido += valorInvestido * taxaJuros;
 
+    anosInvestimento++
+}
+
+console.log(`Levará ${anosInvestimento} anos para o investimento dobrar.`)

@@ -1,12 +1,10 @@
-const capital = 1000;
-const taxa = 10 / 100;
-let montante;
+let valorProduto = 80000;
+let numeroParcelas = 84;
 
-const periodo = 10;
+let valorParcelas = valorProduto / numeroParcelas;
 
-montante = capital * (1 + taxa) ** periodo
-
-let dif = montante - capital
-
-console.log(`Neste periodo de ${periodo} anos você obteve o lucro de ${dif.toFixed(2)}. Seu capital atual é de ${montante.toFixed(2)}.`)
-
+for(let i = 1; i <= numeroParcelas; i++){
+    valorProduto -= valorParcelas;
+    console.log(`Parcela ${i}: R$ ${valorParcelas.toFixed(2)}`)
+    console.log(`Valor restante a ser pago: R$ ${valorProduto.toFixed(2)}`)
+}

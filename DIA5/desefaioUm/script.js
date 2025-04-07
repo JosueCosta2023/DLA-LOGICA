@@ -1,12 +1,8 @@
-const capital = 1000;
-const taxa = 10 / 100;
-let montante;
+let valorInvestido= 60000;
+let taxaJuros = 0.0617;
+let anoInvestimento = 3;
 
-const periodo = 10;
-
-montante = capital * (1 + taxa) ** periodo
-
-let dif = montante - capital
-
-console.log(`Neste periodo de ${periodo} anos você obteve o lucro de ${dif.toFixed(2)}. Seu capital atual é de ${montante.toFixed(2)}.`)
-
+for(let i = 1; i <= anoInvestimento; i++){
+    valorInvestido += valorInvestido * taxaJuros
+    console.log(`No final do ano ${i}, o valor investido será de r$: ${valorInvestido.toFixed(2)}.`)
+}
