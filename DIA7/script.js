@@ -1,49 +1,98 @@
-let contaCorrente = 500;
-let contaPoupança = 0;
+let saldoConta1 = 600;
+let saldoConta2 = 400;
+let limite = 0;
+let jurosLimite = 0;
 
-const verifacaoDeContas = (contaCorrente, contaPoupança) => {
-    if (contaCorrente < 0 || contaPoupança < 0) {
-        return true
+const perncentualLimite = 0.10;
+const saldoMinimoLimite = 1000;
+const taxaConversaoDolar = 5.23;
+
+// 
+function saldoTotal() {
+    let total = saldoConta1 + saldoConta2;
+    if (total >= saldoMinimoLimite) {
+        limite = total * perncentualLimite;
+    }
+    return total
+}
+
+function alertaSaldo() {
+    if (saldoConta1 <= 0) {
+        console.log("Conta 1 esta sem saldo ou utilizando o limite.")
+    }
+
+    if (saldoConta2 <= 0) {
+        console.log("Conta 2 esta sem saldo ou utilizando o limite.")
     }
 }
 
-const gerarLimiteDeCredito = (contaCorrente, contaPoupança) => {
-    let soma = contaCorrente + contaPoupança;
-    let limiteDeCredito = 0;
+function depositar(conta, valor) {
+    if (conta === 1) {
+        if (saldoConta1 < 0) {
+            jurosLimite += valor * 0.15;
+        }
 
-    if (soma >= 1000) {
-        limiteDeCredito = (soma * 0.10)
+        saldoConta1 *= 0.85
+
+    } else if (conta === 2) {
+        if (saldoConta2 < 0) {
+            jurosLimite += valor * 0.15
+        }
+
+        saldoConta2 *= 0.85
+
     }
-    return limiteDeCredito
 }
 
-const credito = gerarLimiteDeCredito(contaCorrente, contaPoupança)
+function debitar(conta, valor) {
+    if(conta === 1 && valor <= (saldoConta1 + limite)){
+        saldoConta1 -= valor;
 
-const analise = verifacaoDeContas(contaCorrente, contaPoupança)
+    } else if(conta === 2 && valor <= (saldoConta2 + limite)) {
+        saldoConta2 -= valor;
 
-// Exibição aos clientes
-
-
-if ((credito === 0 || credito === null || credito === undefined) && analise === true) {
-    console.log("Você não possui credito em nossa instituição. \nVerifique os saldos de suas contas bancarias.")
-} else {
-    console.log("Seu limite de credito atual é: R$" + credito)
-}
+    } else {
+        console.log(`Saldo insuficiente para debito na conta ` + conta)
+    }
+ }
 
 
-// Criar duas contas bancarias
+function transferir(contaOrigem, contaDestino, valor) {
+    if(contaOrigem === 1 && valor <= saldoConta1){
+        debitar(1, valor);
+        depositar(contaDestino, valor);
 
-// Elas devem compartilhar de um mesmo limiteDeCredito iniciado por 0
+    } else if(contaOrigem === 2 && valor <= saldoConta2){
+        debitar(2, valor);
+        depositar(contaDestino, valor);
 
-// Caso o saldo de uma das contas atinja o valor de R$ 1000,00 então o limite será de 10%
+    } else {
+        console.log(`Saldo insuficiente para transferencia na conta `+ contaOrigem)
+    }
+ }
 
-// Criar 2 variaveis que controlam o saldo de 2 caontas bancarias. As contas compartilham de um limite (que tambem será ou variavel), porem começa em 0.
 
-// A partir do momento que o saldo total das contas atingir R$ 1000, o limite serpa de 10%. Utizando um saldo inicial dessas contas, efetue alguns calculos atraves de funcções que façam o seguinte.
+function converterSaldoParaDolar(conta) {
+    if(conta === 1){
+        return saldoConta1 / taxaConversaoDolar
+    } else if(conta === 2){
+        return saldoConta2 / taxaConversaoDolar
+    }
+ }
+function exibirLimite() {
+    return limite.toFixed(2)
+ }
+function exibirJurosLimite() {
+    return jurosLimite.toFixed(2)
+ }
 
-//  1° Calcular o saldo total das contas.
-//  2° Exibir um alerta caso alguma conta esteja sem saldo ou utilizando o limite.
-//  3° Fazer deposito em alguma das contas
-//  4° Efetuar debito em alguma das contas.
-//  5° Transferir um determinado valor de uma conta para outra, somente se tiver saldo disponivel
-//  6° Fazer a conversão do saldo (que esta em R$) para Dolar (us$)
+console.log('Saldo total: R$' + saldoTotal());
+alertaSaldo();
+depositar(1, 100);
+debitar(2, 50);
+transferir(200, 1, 2);
+console.log('Saldo conta 1 em dólares: US$' + converterSaldoParaDolar(1).toFixed(2));
+console.log('Saldo conta 2 em dólares: US$' + converterSaldoParaDolar(2).toFixed(2));
+console.log('Limite: R$' + exibirLimite());
+console.log('Juros do Limite: R$' + exibirJurosLimite());
+
