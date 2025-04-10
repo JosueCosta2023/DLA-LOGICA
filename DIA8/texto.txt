@@ -1,0 +1,20 @@
+FILAS DO MUNDO REAL
+
+FILAS DE BANCO
+    - O cliente chega na agencia e gera uma senha de atendimento "convencional" ou "prioritario"
+
+    - Aguarda ser chamado para atendimento.
+
+FILAS DE HOSPITAIS
+    - O pasciente chega a recepção, apresenta dados para pré cadastro.
+    - Aguarda ser chamado a triagem para recolher informções basicas da saude e sintomas.
+    - Aguarda o chamado de acordo com a urgencia do caso.
+
+FILAS DE AÇOUGUE
+    - O cliente chega e é atendido por ordem de chegado.
+
+FILAS DE SUPERMERCADOS  
+    - Os clientes são atendidos por ordem de chegada 
+    - É avaliado a preferencia.
+        se idoso, gestante ou pcd tera atendimento priorizado automaticamente.
+    
