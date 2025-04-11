@@ -30,6 +30,24 @@ function lastIndexOfJosue(array, elemento){
     } return -1
 }
 
+function sliceJosue(array, indexInicial = 0, indexFinal = array.length){
+    let pedaco = [];
+
+    if(indexInicial < 0){
+        indexInicial = array.length + indexInicial
+    }
+
+    if(indexFinal < 0){
+        indexFinal = array.length + indexFinal
+    }
+
+    for(let i = indexInicial; i < indexFinal && array.length; i++){
+        pedaco.push(array[i])
+    }
+
+    return pedaco
+}
+
 const redesSociais = [
     "Orkut",
     "Instagram",
@@ -39,4 +57,15 @@ const redesSociais = [
     "Tiktok",
 ]
 
-includesJosue()
+let msgUm = includesJosue(redesSociais, "Msn")
+let msgDois = indexOfJosue(redesSociais, "Msn")
+let msgTres = lastIndexOfJosue(redesSociais, "TitTok")
+let tresMais = sliceJosue(redesSociais,0, 3 )
+
+console.log(`Validação da função includesjosue: ${msgUm}`)
+console.log(`Validação da função indexOfJosue: ${msgDois}`)
+console.log(`Validação da função lastIndexOfJosue: ${msgTres}`)
+
+for(let i = 0; i < tresMais.length; i++){
+    console.log(`Validação da função sliceJosue: ${tresMais[i]}`)
+}
