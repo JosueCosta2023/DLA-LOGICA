@@ -1,24 +1,20 @@
-let deck = [];
+let pilhaDeProdutos = [];
+const CAPACIDADE_MAXIMA  = 10;
 
-function adicionar(carta){
-    deck.push(carta)
-    console.log("Carta adicionada ao deck: " + carta);
-}
-
-function jogar(){
-    if(deck === 0){
-        console.log("O deck esta vazio.")
-        return null;
+function empilharProduto(produto){
+    if(pilhaDeProdutos.length < CAPACIDADE_MAXIMA){
+        pilhaDeProdutos.push(produto)
+        console.log(`Produto ${produto} empilhado.`)
+    } else {
+        console.log("Caixa cheia. Enviando para selagem e despacho.");
+        pilhaDeProdutos = [];
+        pilhaDeProdutos.push(produto);
+        console.log(`Produto ${produto} empilhado na nova caixa.`)
     }
-
-    const cartaJogada = deck.pop()
-    console.log(`Carta ${cartaJogada} jogada.`)
-    return cartaJogada
 }
 
-adicionar("Dama de Paus")
-adicionar("As de espadas")
-adicionar("Rei Copas")
-
-jogar()
+const TOTAL_PRODUTOS_ESTEIRA = 40;
+for(let i = 1; i <= TOTAL_PRODUTOS_ESTEIRA; i++){
+    empilharProduto(`Produto ${i}`)
+}
 
