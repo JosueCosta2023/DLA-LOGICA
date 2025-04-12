@@ -1,6 +1,6 @@
 let avancar = [];
 let voltar = [];
-let atual = 'home';
+let atual = null;
 
 function avancarPagina() {
     if (avancar.length > 0) {
@@ -52,16 +52,15 @@ function mostrarHistorio() {
 
 mostrarHistorio()
 
-navegar("Twitter.com")
-navegar("Instagram.com")
-navegar("Whatsapp.com")
+navegar("1")
+navegar("2")
+navegar("3")
+
+voltarPagina()
+voltarPagina()
 
 avancarPagina()
-
-navegar("Google.com")
-
-voltarPagina()
+navegar("4")
 voltarPagina()
 
 
-navegar("youtube")

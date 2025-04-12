@@ -1,0 +1,70 @@
+🔍 1. Entendendo o cenário
+Temos:
+
+Uma cafeteria Drive Through
+
+Carros chegam e fazem pedidos
+
+Um sistema eletrônico (totem) recebe o pedido
+
+Os pedidos são atendidos na ordem de chegada (regra FIFO)
+
+Cada carro pede apenas um produto
+
+🧠 2. Pensamento lógico por etapas
+Etapa 1 – Representar a fila
+Qual estrutura de dados representa melhor uma sequência com ordem?
+
+A resposta: uma fila.
+
+Fila funciona como uma linha de carros — o primeiro que entra é o primeiro a sair (FIFO).
+
+Etapa 2 – Simular a chegada dos carros
+Quando um carro chega:
+
+Ele entra na fila.
+
+É necessário guardar duas informações: identificação do carro (pode ser um nome, número, ou placa fictícia) e o pedido (um produto).
+
+Ação lógica: adicionar na fila.
+
+Etapa 3 – Atender os carros
+O atendimento segue a ordem de chegada.
+
+Ou seja, precisamos remover o primeiro da fila para atendê-lo.
+
+Ação lógica: retirar da fila e processar o pedido.
+
+Etapa 4 – Informações adicionais
+Você pode pensar em ações como:
+
+Mostrar a fila atual
+
+Verificar se a fila está vazia
+
+Contar quantos carros ainda aguardam
+
+Atender todos os carros em sequência
+
+🔄 3. Ações que o sistema precisa ter
+Vamos listar as funções do sistema, em termos lógicos:
+
+Ação	                   - Descrição
+
+Adicionar carro	           - Simula a chegada de um cliente
+Atender carro	           - Remove o primeiro da fila e registra o atendimento
+Ver fila	               - Mostra o estado atual da fila
+Ver se a fila está vazia   - Importante para evitar erro ao tentar atender sem clientes
+
+
+
+💭 4. Pensamento extra: o que pode evoluir?
+Depois que essa lógica básica estiver clara, você pode pensar em melhorias:
+
+Adicionar um tempo estimado de atendimento
+
+Criar várias filas (como pistas diferentes de atendimento)
+
+Definir um limite máximo de carros na fila
+
+Simular o fluxo em tempo real
