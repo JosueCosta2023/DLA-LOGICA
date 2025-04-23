@@ -183,7 +183,7 @@ for(let i = 1; i <= 20; i++){
 for(let i = 1; i <= 5; i++){
     playList.tocarMusica("Shape of You")
 }
-for(let i = 1; i <= 19; i++){
+for(let i = 1; i <= 30; i++){
     playList.tocarMusica("Blinding Lights")
 }
 for(let i = 1; i <= 13; i++){
